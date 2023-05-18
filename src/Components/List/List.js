@@ -6,6 +6,7 @@ import classes from './List.module.css'
 const List = (props) => {
     const deleteHandler = () => {
         props.ondelete(props.listItems[0].id);
+        localStorage.removeItem('key');
     }
     return (
       <Card className={classes.outer}>
@@ -18,7 +19,7 @@ const List = (props) => {
               key={Math.random()}
             >
                   {item.pn}-{item.sp}-{item.tab}
-                  <Button>Delete</Button>
+                  <Button onClick={deleteHandler}>Delete</Button>
             </li>
           );
         })}

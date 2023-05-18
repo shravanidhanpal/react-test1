@@ -23,6 +23,16 @@ const Form = (props) => {
     dishRef.current.value = '';
     tableRef.current.value = 'Choose';
 }
+function clickHandler(event){
+  let click={
+  id:idRef.current.value,
+  price:priceRef.current.value,
+  dish:dishRef.current.value,
+  tableno:tableRef.current.value
+  }
+  console.log(click);
+  localStorage.setItem('key',JSON.stringify(click));
+}
     return (
       <Card className={classes.form}>
         <form onSubmit={submitHandler}>
@@ -39,7 +49,7 @@ const Form = (props) => {
             <option value="table-2">table-2</option>
             <option value="table-3">table-3</option>
           </select>
-          <Button >Add to bill</Button>
+          <Button onClick={clickHandler}>Add to bill</Button>
         </form>
       </Card>
     );

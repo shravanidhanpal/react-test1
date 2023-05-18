@@ -3,7 +3,6 @@ import Form from "./Components/Form/Form";
 import List from "./Components/List/List";
 function App() {
   const [data, setData] = useState([
-    {id: '1', sp:'20', pn:'samosa',tab:'table-1' }
   ]);
   const addDataHandler = (enteredData) => {
     setData(prevdata => {
@@ -28,7 +27,6 @@ function App() {
       <List ondelete={deleteHandler} category={'table-1'} listItems={table1Data} />
       <List ondelete={deleteHandler} category={'table-2'} listItems={table2Data} />
       <List ondelete={deleteHandler} category={'table-3'} listItems={table3Data} />
-
     </React.Fragment>
   );
 }
