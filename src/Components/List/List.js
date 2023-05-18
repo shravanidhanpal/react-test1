@@ -6,7 +6,6 @@ import classes from './List.module.css'
 const List = (props) => {
     const deleteHandler = () => {
         props.ondelete(props.listItems[0].id);
-        localStorage.removeItem('key');
     }
     return (
       <Card className={classes.outer}>

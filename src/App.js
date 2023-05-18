@@ -1,22 +1,23 @@
-import React,{useState} from "react";
+import React,{ useEffect, useState} from "react";
 import Form from "./Components/Form/Form";
 import List from "./Components/List/List";
 function App() {
-  const [data, setData] = useState([
-  ]);
+  const [data, setData] = useState([]);
+  useEffect(()=>{ },[]);
   const addDataHandler = (enteredData) => {
     setData(prevdata => {
-      return [enteredData, ...prevdata];
-    })
-  }
+      const updatedData=[enteredData,...prevdata];
+      localStorage.setItem('storedData',JSON.stringify(updatedData));
+      return updatedData;
+    });
+  };
   const deleteHandler = (deltetedItemId) => {
-    // console.log(deltetedItemId);
     setData(prevData => {
       return prevData.filter(item => {
-        // console.log(item.id)
+      localStorage.removeItem('storedData');
        return  item.id !== deltetedItemId
       })
-    })
+  })
 };
   const table1Data = data.filter((item) => { return item.tab === 'table-1' });
   const table2Data = data.filter((item) => { return item.tab === "table-2" });
